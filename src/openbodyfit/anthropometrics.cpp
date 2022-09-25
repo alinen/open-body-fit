@@ -295,19 +295,12 @@ void Anthropometrics::init(const Skeleton& inSkeleton,
 {
     Skeleton skeleton = inSkeleton;
     ScaleSkeleton(skeleton, factor);
-
-    // Find up direction
-    int upidx = 2; 
-    vec3 dim = getDimensions(skeleton);
-    if (dim[1] > dim[2]) upidx = 1;
-
     setupBoneShapes(skeleton, height, weight);
 }
 
 void Anthropometrics::setupBoneShapes(const Skeleton& skeleton, float height, float totalMass)
 {
     _bodyMass = totalMass;
-    Joint* root = skeleton.getRoot();
 
     float d = getBodyDensity(height, totalMass);
     for (int i = 0; i < skeleton.getNumJoints(); i++)

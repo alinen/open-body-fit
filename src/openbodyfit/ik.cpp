@@ -32,8 +32,6 @@ static vec3 eulerXYZ(quat q)
 static void setPose(double *p, int m, OptData* data)
 {
   Skeleton& skeleton = data->skeleton;
-  Joint* root = skeleton.getRoot();
-  //root->setLocalTranslation(points[currentFrame][data->params._namemap["neck"]]);
 
   int idx = 0;
   for (auto name : data->params._joints)

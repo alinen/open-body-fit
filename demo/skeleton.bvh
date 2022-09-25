@@ -1,0 +1,61 @@
+HIERARCHY
+ROOT root
+{
+	OFFSET 0.00 0.00 0.00
+	CHANNELS 6 Xposition Yposition Zposition Xrotation Yrotation Zrotation
+	JOINT neck
+	{
+		OFFSET 0 0 0
+		CHANNELS 3 Xrotation Yrotation Zrotation
+		End head
+		{
+			OFFSET 0 20.0025 0
+		}
+	}
+	End torso
+	{
+		OFFSET 0 -40.005 0
+	}
+	JOINT lshoulder
+	{
+		OFFSET 17.5357 -3.68096 1.7407
+		CHANNELS 3 Xrotation Yrotation Zrotation
+		JOINT lelbow
+		{
+			OFFSET 20.0025 0 0
+			CHANNELS 3 Xrotation Yrotation Zrotation
+			JOINT lwrist
+			{
+				OFFSET 20.0025 0 0
+				CHANNELS 3 Xrotation Yrotation Zrotation
+				End lhand
+				{
+					OFFSET 10.0013 0 0
+				}
+			}
+		}
+	}
+	JOINT rshoulder
+	{
+		OFFSET -17.5357 -3.68096 1.7407
+		CHANNELS 3 Xrotation Yrotation Zrotation
+		JOINT relbow
+		{
+			OFFSET -20.0025 0 0
+			CHANNELS 3 Xrotation Yrotation Zrotation
+			JOINT rwrist
+			{
+				OFFSET -20.0025 0 0
+				CHANNELS 3 Xrotation Yrotation Zrotation
+				End rhand
+				{
+					OFFSET -10.0013 0 0
+				}
+			}
+		}
+	}
+}
+MOTION
+Frames: 1
+Frame Time: 0.0333333
+1.9113	104.92	3.2122	-0	0	-0	-9.79989	-0.0693151	0.40129	39.8188	-1.08634	-72.2967	180	-89.0364	-180	-0	0	-0	35.6064	19.1795	60.9639	-0	89.3129	0	-0	0	-0

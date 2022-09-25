@@ -1,6 +1,6 @@
 # open-body-fit
 
-Software for fitting 3D biomechanical bodies to poses extracted from video.
+Software for estimating biomechanics from poses extracted from video.
 Send feedback and inquiries to `anormoyle @ brynmawr.edu`
 
 todo: video
@@ -58,5 +58,5 @@ start open-body-fit.sln
 ## Cite
 
 ```
-bibtex
+
 ```

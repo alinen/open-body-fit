@@ -71,6 +71,9 @@ elseif (UNIX)
     src/atk
     src/agl
     src/agl/agl
+    src/external/dart
+    src/external/dart/build
+    src/levmar-2.6
     src/external
     src/external/include)
 
@@ -78,12 +81,16 @@ elseif (UNIX)
     /usr/X11R6/lib
     /usr/local/lib
     src
+    src/external/dart/build/lib
+    src/levmar-2.6/build
     src/external/lib
     src/atk/atk
     src/agl/agl)
 
   add_definitions(-DUNIX)
-  set(CORE atk agl GLEW glfw GL X11)
+  set(DART_LIBS dart assimp)
+  set(LEVMAR_LIBS levmar m dl lapack;blas f2c)
+  set(CORE atk agl GLEW glfw GL X11 ${DART_LIBS} ${LEVMAR_LIBS})
 
 endif()
 

@@ -1,4 +1,5 @@
 add_subdirectory(agl)
 add_subdirectory(atk)
+add_subdirectory(levmar-2.6)
 add_subdirectory(imgui)
 add_subdirectory(openbodyfit)

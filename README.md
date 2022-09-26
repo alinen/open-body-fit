@@ -3,6 +3,8 @@
 Software for estimating biomechanics from poses extracted from video.
 Send feedback and inquiries to `anormoyle @ brynmawr.edu`
 
+[![ubuntu](https://github.com/alinen/open-body-fit/actions/workflows/cmake-linux.yml/badge.svg)](https://github.com/alinen/open-body-fit/actions/workflows/cmake-linux.yml)
+
 ## Demo
 
 We demonstrate the software using a video of Nicaraguan sign language. 

@@ -35,7 +35,7 @@ jobs:
       
     - name: Configure CMake for dart
       working-directory: ${{github.workspace}}/src/external/dart
-      run: cmake -S src/external/dart -B ${{github.workspace}}/src/external/dart/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -B ${{github.workspace}}/src/external/dart/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
       
     - name: Build dart
       working-directory: ${{github.workspace}}/src/external/dart

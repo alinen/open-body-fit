@@ -68,19 +68,15 @@ elseif (UNIX)
   set(INCLUDE_DIRS
     .
     src
-    src/atk
-    src/agl
-    src/agl/agl
+    src/external
     src/external/dart
     src/external/dart/build
-    src/levmar-2.6
-    src/external
+    src/external/levmar-2.6
     src/external/include)
 
   set(LIBRARY_DIRS
     /usr/X11R6/lib
     /usr/local/lib
-    src
     src/external/dart/build/lib
     src/levmar-2.6/build
     src/external/lib

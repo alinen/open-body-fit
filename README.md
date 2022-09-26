@@ -15,17 +15,39 @@ Input Files:
 
 ## Build from source
 
-You will need [cmake](https://cmake.org) and C++ development tools installed to build from source.
+You will need [cmake](https://cmake.org) and C++ development tools installed to
+build from source.
+
+The repository includes the source for the following dependencies 
+
+* [dart](https://dartsim.github.io/) - physics
+* [eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page) - physics math
+* [levmar](http://users.ics.forth.gr/~lourakis/levmar/) - optimization
+* [imgui](https://github.com/ocornut/imgui) - gui
+* [agl](https://github.com/alinen/agl) - graphics
+* [atk](https://github.com/alinen/atk) - animation
 
 ### Ubuntu
 
-Tested with gcc.
+First, build the dart dependency. 
 
 ```
+cd open-body-fit/src/external/dart
 mkdir build
 cd build
 cmake ..
-make
+make -j6
+```
+
+Then, return to the root directory and build the open-body-fit utility.
+
+```
+cd open-body-fit
+mkdir build
+cd build
+cmake ..
+make -j6
+../bin/open-body-fit
 ```
 
 ## Cite

@@ -5,6 +5,10 @@ Send feedback and inquiries to `anormoyle @ brynmawr.edu`
 
 [![ubuntu](https://github.com/alinen/open-body-fit/actions/workflows/cmake-linux.yml/badge.svg)](https://github.com/alinen/open-body-fit/actions/workflows/cmake-linux.yml)
 
+
+![Peek 2022-09-26 16-09](https://user-images.githubusercontent.com/259657/192370359-41aeeacb-7542-40e1-a6ea-72fe0e56c79a.gif)
+
+
 ## Demo
 
 We demonstrate the software using a video of Nicaraguan sign language. 
@@ -19,6 +23,8 @@ Keyboard controls:
 
 * Press '3' to switch from 3D and 2D views
 * Press SPACE to play/pause the animation
+* When paused, press Up to go forward one frame 
+* When paused, press Down to go backward one frame
 * Press 'M' to toggle the physics visualization (yellow cubes)
 * Press 'S' to toggle the skeleton (blue)
 * Press 'P' to toggle the points (black spheres)

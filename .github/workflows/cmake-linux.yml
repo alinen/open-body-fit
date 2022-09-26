@@ -34,7 +34,7 @@ jobs:
       run: sudo apt-get install f2c libblas-dev liblapack-dev
       
     - name: Install dart dependencies
-      run: sudo apt-get install libeigen3-dev libassimp-dev libccd-dev libfcl-dev libboost-regex-dev libboost-system-dev
+      run: sudo apt-get install libtinyxml-dev libeigen3-dev libassimp-dev libccd-dev libfcl-dev libboost-regex-dev libboost-system-dev
       
     - name: Configure CMake for dart
       working-directory: ${{github.workspace}}/src/external/dart

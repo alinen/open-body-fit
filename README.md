@@ -15,6 +15,22 @@ Input Files:
 * `demo/images` - frames of input video for checking the fit (30 fps)
 * `demo/036CR1-3d.csv` - extracted poses from video (csv file)
 
+Keyboard controls:
+
+* Press '3' to switch from 3D and 2D views
+* Press SPACE to play/pause the animation
+* Press 'M' to toggle the physics visualization (yellow cubes)
+* Press 'S' to toggle the skeleton (blue)
+* Press 'P' to toggle the points (black spheres)
+* Press 'H' to center the view on the head
+* Press 'W' to center the view on the wrist
+
+Camera controls (3D view):
+
+* Left mouse button rotates the camera
+* Middle mouse button zooms in and out
+* Right mouse button pans the camera
+
 ## Build from source
 
 You will need [cmake](https://cmake.org) and C++ development tools installed to

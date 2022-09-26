@@ -3,39 +3,23 @@
 Software for estimating biomechanics from poses extracted from video.
 Send feedback and inquiries to `anormoyle @ brynmawr.edu`
 
-todo: video
-
-## Tutorial
+## Demo
 
 We demonstrate the software using a video of Nicaraguan sign language. 
-The software takes the following input files (located in the `tutorial` directory).
+The software takes the following input files (located in the `demo` directory).
 
 Input Files:
 
-* `images` - frames of input video (30 fps)
-* `??` - extracted poses (csv file)
-
-Graphical Interface:
-
-
-Ouput Files:
-
-The utility `solve-skeleton` 
-
-## Download binaries
-
-You can download pre-made binaries for windows and mac.
-
-* link:todo[Windows Download]
-* link:todo[MacOS Download]
+* `demo/images` - frames of input video for checking the fit (30 fps)
+* `demo/036CR1-3d.csv` - extracted poses from video (csv file)
 
 ## Build from source
 
-You will need link:todo[cmake] and C++ development tools installed to build from source.
+You will need [cmake](https://cmake.org) and C++ development tools installed to build from source.
 
-### Linux and MacOS
+### Ubuntu
 
-Tested with gcc (Linux) and clang (MacOS).
+Tested with gcc.
 
 ```
 mkdir build
@@ -44,19 +28,8 @@ cmake ..
 make
 ```
 
-### Windows
-
-Tested using Visual Studio version ??
-
-```
-mkdir build
-cd build
-cmake ..
-start open-body-fit.sln
-```
-
 ## Cite
 
-```
+Normoyle A., Artacho B., Savakis A., Senghas A., Badler N. I., Occhino C., Rothstein S. J., and Dye M. W. G. Dye, 2022, _Open-Source Pipeline for Skeletal Modeling of Sign Language Utterances from 2D Video Sources [Talk]_, Theoretical Issues in Sign Language Research (TISLR)
 
-```
+[You can see the talk here.](https://www.youtube.com/watch?v=q2bP6BvWoEo) 

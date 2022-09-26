@@ -84,7 +84,7 @@ elseif (UNIX)
     src/agl/agl)
 
   add_definitions(-DUNIX)
-  set(DART_LIBS dartd assimp)
+  set(DART_LIBS dartd ccd fcl assimp)
   set(LEVMAR_LIBS levmar m dl lapack;blas f2c)
   set(CORE atk agl GLEW glfw GL X11 ${DART_LIBS} ${LEVMAR_LIBS})
 

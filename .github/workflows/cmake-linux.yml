@@ -37,11 +37,11 @@ jobs:
       run: sudo apt-get install libtinyxml-dev libeigen3-dev libassimp-dev libccd-dev libfcl-dev libboost-regex-dev libboost-system-dev
       
     - name: Configure CMake for dart
-      working-directory: ${{github.workspace}}/src/external/dart
+      #working-directory: ${{github.workspace}}/src/external/dart
       run: cmake -B ${{github.workspace}}/src/external/dart/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
       
     - name: Build dart
-      working-directory: ${{github.workspace}}/src/external/dart
+      #working-directory: ${{github.workspace}}/src/external/dart
       run: cmake --build ${{github.workspace}}/src/external/dart/build  --config ${{env.BUILD_TYPE}}
 
     - name: Configure CMake

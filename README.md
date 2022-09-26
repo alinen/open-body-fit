@@ -31,25 +31,35 @@ The repository includes the source for the following dependencies
 
 ### Ubuntu
 
-First, build the dart dependency. 
+**Install dependencies**
 
 ```
-cd open-body-fit/src/external/dart
-mkdir build
-cd build
-cmake ..
-make -j6
+sudo apt-get install libglfw3-dev mesa-utils libglew-dev
+sudo apt-get install f2c libblas-dev liblapack-dev
+sudo apt-get install libtinyxml-dev libeigen3-dev 
+sudo apt-get install libassimp-dev libccd-dev libfcl-dev libboost-regex-dev libboost-system-dev
 ```
 
-Then, return to the root directory and build the open-body-fit utility.
+NOTE: If you receive an error involving `boost_filesystem`, also do `sudo apt-get install libboost-dev-all`.
+
+**Build source**
+
+From the root directory (e.g. open-body-fit), build dart, other dependencies, and our code. 
 
 ```
-cd open-body-fit
-mkdir build
-cd build
-cmake ..
-make -j6
-../bin/open-body-fit
+cmake -S ./src/external/dart -B ./src/external/dart/build -DCMAKE_BUILD_TYPE=Debug
+cmake --build ./src/external/dart/build  --config Debug
+cmake -B ./build -DCMAKE_BUILD_TYPE=Debug
+cmake --build ./build  --config Debug
+```
+
+**Run**
+
+The executable should be run from the `/bin` directory
+
+```
+cd open-body-fit/bin
+./open-body-fit
 ```
 
 ## Cite

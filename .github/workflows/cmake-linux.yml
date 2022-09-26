@@ -56,9 +56,6 @@ jobs:
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Verify dart
-      run: cat ${{github.workspace}}/build/src/openbodyfit/CMakeFiles/open-body-fit.dir/CXX.includecache
-
-    - name: Verify dart
       run: cat ${{github.workspace}}/build/src/openbodyfit/CMakeFiles/open-body-fit.dir/link.txt
 
     - name: Verify dart

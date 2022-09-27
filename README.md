@@ -1,13 +1,16 @@
 # open-body-fit
 
-Software for estimating biomechanics from poses extracted from video.
-Send feedback and inquiries to `anormoyle @ brynmawr.edu`
+Software for estimating biomechanics from poses extracted from video. This repository contains C++ code for visualizing and 
+generating estimates of velocities, accelerations, forces, etc from points extracted from a video. We additionally include our 
+R scripts for visualizing and analyzing this data. 
+
+[Click here for documentation on our R scripts](https://alinen.github.io/open-body-fit/R/036CR1-Example.html)
+
+Please send feedback and questions to `anormoyle @ brynmawr.edu`
 
 [![ubuntu](https://github.com/alinen/open-body-fit/actions/workflows/cmake-linux.yml/badge.svg)](https://github.com/alinen/open-body-fit/actions/workflows/cmake-linux.yml)
 
-
 ![Peek 2022-09-26 16-09](https://user-images.githubusercontent.com/259657/192370359-41aeeacb-7542-40e1-a6ea-72fe0e56c79a.gif)
-
 
 ## Demo
 

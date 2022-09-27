@@ -1,3 +1,4 @@
+.RData
 build/
 syntax: glob
 *.swp

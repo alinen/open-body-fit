@@ -1,7 +1,5 @@
 #include "physicsskeleton.h"
-
 #include <dart/dart.hpp>
-#include <dart/utils/utils.hpp>
 
 class DartSkeleton : public PhysicsSkeleton
 {

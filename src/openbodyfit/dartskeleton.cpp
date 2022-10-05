@@ -142,7 +142,7 @@ void DartSkeleton::createBox(const BodyNodePtr& bn, atk::Joint* joint, const glm
   //std::cout << joint->getName() << " " << length << " " << radius << std::endl;
 
   std::shared_ptr<BoxShape> box(new BoxShape(
-      Eigen::Vector3d(2*radius, 2*radius, length)));
+      Eigen::Vector3d(radius, radius, length)));
 
   // Create a shape node for visualization and collision checking
   auto shapeNode

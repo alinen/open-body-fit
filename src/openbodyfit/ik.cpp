@@ -218,16 +218,19 @@ bool LevmarSolve(const std::string& ptfilename, BodyFitParams& params)
   std::string outName = params.outputMotionName(ptfilename);
   std::string ptOutName = params.outputPointsName(ptfilename); 
 
-  std::vector<std::vector<vec3>> postprocessed;
-  Scale(points, params._namemap, params._height); 
-  GaussianFilter(points, 1.8f, 10, postprocessed);
-  SavePoints(ptOutName, postprocessed);
-
   Motion motion;
   Skeleton skeleton;
 
   BVHReader bvhreader;
   bvhreader.load(params._skeletonfile, skeleton, motion);
+
+  std::vector<std::vector<vec3>> postprocessed;
+  atk::Joint* arm = skeleton.getByName("lelbow");
+  float armLen = glm::length(arm->getLocalTranslation()) * 0.01; // todo: watch out for units
+  std::cout << armLen << std::endl;
+  Scale(points, params._namemap, armLen); // todo: don't hard-code arm joint
+  GaussianFilter(points, 1.8f, 10, postprocessed);
+  SavePoints(ptOutName, postprocessed);
   LevmarSolve(postprocessed, skeleton, motion, params);
   
   BVHWriter bvhwriter;

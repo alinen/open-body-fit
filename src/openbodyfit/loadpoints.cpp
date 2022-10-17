@@ -9,6 +9,7 @@
 #include "agl/aglm.h"
 
 using glm::vec3;
+using glm::vec2;
 bool LoadPoints(const std::string& filename,
    std::vector<std::vector<glm::vec3>>& points)
 {
@@ -41,16 +42,54 @@ bool LoadPoints(const std::string& filename,
       std::vector<glm::vec3> linepts;
       for (int i = 0; i < numValues; i += 3) 
       {
-        glm::vec3 p(lineData[i+0], 
-               lineData[i+1], 
-               lineData[i+2]); 
+         glm::vec3 p(lineData[i+0], lineData[i+1], lineData[i+2]); 
+         linepts.push_back(p);
+      }
+      points.push_back(linepts);
+   }
+   return true;
+}
 
+bool LoadPoints2D(const std::string& filename,
+   std::vector<std::vector<glm::vec2>>& points)
+{
+   std::ifstream file(filename, std::ios::in);
+   if (!file.is_open())
+   {
+      std::cout << "Cannot open file: " << filename << std::endl;
+      return false;
+   }
+
+   points.clear();
+   std::string line;
+   while (getline(file, line))
+   {
+      std::stringstream tokenizer(line);
+      std::regex whitespace("\\s+");
+      std::string token;
+
+      std::vector<float> lineData;
+      while (getline(tokenizer, token, ','))
+      {
+         token = std::regex_replace(token, whitespace, "");
+         float value = atof(token.c_str());
+         lineData.push_back(value);
+      }
+
+      int numValues = lineData.size();
+      assert (numValues % 2 == 0);
+
+      std::vector<glm::vec2> linepts;
+      for (int i = 0; i < numValues; i += 2) 
+      {
+        glm::vec2 p(lineData[i+0], lineData[i+1]);
         linepts.push_back(p);
       }
       points.push_back(linepts);
    }
    return true;
 }
+
 
 void GaussianFilter(std::vector<std::vector<glm::vec3>>& points, float sigma, int size, 
    std::vector<std::vector<glm::vec3>>& result)
@@ -91,7 +130,7 @@ void GaussianFilter(std::vector<std::vector<glm::vec3>>& points, float sigma, in
 
 // NOTE: Function assumes that points are in normalized image coordinates
 void Scale(std::vector<std::vector<glm::vec3>>& points, 
-   std::map<std::string, int>& namemap, float heightMeters)
+   std::map<std::string, int>& namemap, float foreArm)
 {
    std::vector<float> forearmDistanceSqr;
    for (int f = 0; f < points.size(); f++)
@@ -109,7 +148,8 @@ void Scale(std::vector<std::vector<glm::vec3>>& points,
    float median = sqrt(forearmDistanceSqr[forearmDistanceSqr.size()/2]);
    std::cout << "median arm distance: " << median << std::endl;
 
-   float ratio = heightMeters * 0.1250 / median;
+   float ratio = foreArm / median;
+   //float ratio = 1.6002 * 0.1250 / median;
    ratio = 100 * ratio; // convert from meters to centimeters
    std::cout << "ratio (image 2 meters): " << ratio << std::endl;
    

@@ -55,18 +55,21 @@ class VideoViewer : public agl::Window {
   }
 
   mat4 computeProjection(BodyFitParams params) {
-    std::map<std::string,int> namemap = {
-      {"lshoulder", 5},
-      {"rshoulder", 6},
-      {"lelbow", 7},
-      {"relbow", 8},
-      {"lwrist", 9},
-      {"rwrist", 10},
-    };
+    std::vector<std::string> ids = {
+      "neck", "head", 
+      "rwrist", "relbow", "rshoulder", 
+      "lshoulder", "lelbow", "lwrist"};
 
-    LoadPoints2D("../demo/036CR1-2d-raw.csv", points2D);
+    std::vector<glm::vec2> points2D;
+    std::ifstream file("../demo/036CR1-2d-landmarks.csv", std::ios::in);
+    for (int i = 0; i < ids.size(); i++) {
+      float x, y;
+      file >> x;
+      file >> y;
+      points2D.push_back(vec2(x,y));
+    }
 
-    int numPoints = namemap.size();
+    int numPoints = ids.size();
 
     float points2D_x[numPoints];
     float points2D_y[numPoints];
@@ -75,27 +78,18 @@ class VideoViewer : public agl::Window {
     float points3D_y[numPoints];
     float points3D_z[numPoints];
 
-    float yscale = 480/288.0; 
-    float xscale = 720/384.0; 
-    //std::cout << xscale * p1[0] << " " << HEIGHT - yscale * p1[1]  << std::endl;
-
-    int i = 0;
-    for (auto it : namemap) {
-      std::string name = it.first;
+    for (int i = 0; i < ids.size(); i++) {
+      std::string name = ids[i];
       int idx3D = params._namemap[name];
       vec3 pos3D = _points[0][idx3D]; 
       points3D_x[i] = pos3D.x;
       points3D_y[i] = pos3D.y;
       points3D_z[i] = pos3D.z;
     
-      int idx2D = it.second;
-      vec2 pos2D = points2D[0][idx2D]; 
-      pos2D.x = xscale * pos2D.x;
-      pos2D.y = HEIGHT - yscale * pos2D.y;
+      vec2 pos2D = points2D[i]; 
       points2D_x[i] = pos2D.x;
       points2D_y[i] = pos2D.y;
       //std::cout << name << " " << glm::to_string(pos3D) <<  " "  << glm::to_string(pos2D) << std::endl;
-      i++;
     }
 
     Eigen::MatrixXd A(numPoints * 2, 11);
@@ -168,9 +162,8 @@ class VideoViewer : public agl::Window {
     }*/
 
     // todo: test that matrix approximates screen coordinates
-    i = 0;
-    for (auto it : namemap) {
-      std::string name = it.first;
+    for (int i = 0; i < ids.size(); i++) {
+      std::string name = ids[i];
       int idx3D = params._namemap[name];
       vec3 pos3D = _points[0][idx3D]; 
       vec4 test = C * vec4(pos3D, 1.0);
@@ -178,7 +171,6 @@ class VideoViewer : public agl::Window {
       test[1] = test[1]/test[3];
       vec2 test2 = vec2(points2D_x[i], points2D_y[i]);
       std::cout << name << " " << glm::to_string(test) << " " << test2 << std::endl;
-      i++;
     }
     return C;
   }

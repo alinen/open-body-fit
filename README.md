@@ -89,6 +89,6 @@ cd open-body-fit/bin
 
 ## Cite
 
-Normoyle A., Artacho B., Savakis A., Senghas A., Badler N. I., Occhino C., Rothstein S. J., and Dye M. W. G. Dye, 2022, _Open-Source Pipeline for Skeletal Modeling of Sign Language Utterances from 2D Video Sources [Talk]_, Theoretical Issues in Sign Language Research (TISLR)
+Normoyle A., Artacho B., Savakis A., Senghas A., Badler N. I., Occhino C., Rothstein S. J., and Dye M. W. G., 2022, _Open-Source Pipeline for Skeletal Modeling of Sign Language Utterances from 2D Video Sources [Talk]_, Theoretical Issues in Sign Language Research (TISLR)
 
 [You can see the talk here.](https://www.youtube.com/watch?v=q2bP6BvWoEo) 

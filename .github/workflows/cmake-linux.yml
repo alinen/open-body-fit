@@ -37,7 +37,7 @@ jobs:
       run: ls ${{github.workspace}}/src/external/; cat CMakeLists.txt
       
     - name: Install dart dependencies
-      run: sudo apt-get install libtinyxml-dev libeigen3-dev libassimp-dev libccd-dev libfcl-dev libboost-regex-dev libboost-system-dev
+      run: sudo apt-get install libtinyxml-dev libeigen3-dev libassimp-dev libccd-dev libfcl-dev libboost-all-dev libboost-regex-dev libboost-system-dev
       
     - name: Configure CMake for dart
       #working-directory: ${{github.workspace}}/src/external/dart

@@ -59,13 +59,15 @@ The repository includes the source for the following dependencies
 **Install dependencies**
 
 ```
+sudo apt-get update
+sudo apt-get dist-upgrade
 sudo apt-get install libglfw3-dev mesa-utils libglew-dev
 sudo apt-get install f2c libblas-dev liblapack-dev
 sudo apt-get install libtinyxml-dev libeigen3-dev 
 sudo apt-get install libassimp-dev libccd-dev libfcl-dev libboost-regex-dev libboost-system-dev
 ```
 
-NOTE: If you receive an error involving `boost_filesystem`, also do `sudo apt-get install libboost-dev-all`.
+NOTE: If you receive an error involving `boost_filesystem`, also do `sudo apt-get install libboost-all-dev`.
 
 **Build source**
 
